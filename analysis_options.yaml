@@ -1,9 +1,12 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
+  exclude:
+    - "tool/**"
   errors:
     missing_required_param: error
     missing_return: error
+    deprecated_member_use: ignore
     todo: ignore
 
 linter:

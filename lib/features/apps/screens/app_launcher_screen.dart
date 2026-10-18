@@ -115,16 +115,16 @@ class _AppLauncherScreenState extends State<AppLauncherScreen> {
                     ),
                   )
                 : _filteredApps.isEmpty
-                ? Center(
+                ? const Center(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Icon(
+                        Icon(
                           Icons.apps_outage,
                           size: 48,
                           color: CyberColors.textMuted,
                         ),
-                        const SizedBox(height: 12),
+                        SizedBox(height: 12),
                         Text(
                           'No matching applications found',
                           style: TextStyle(color: CyberColors.textMuted),

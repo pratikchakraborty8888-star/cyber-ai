@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/config/app_config.dart';
 import '../../../core/services/ai_service.dart';
 import '../../../core/services/platform_bridge.dart';
 import '../../../core/services/speech_service.dart';

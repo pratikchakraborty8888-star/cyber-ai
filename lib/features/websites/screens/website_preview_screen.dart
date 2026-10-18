@@ -123,7 +123,6 @@ class _WebsitePreviewScreenState extends State<WebsitePreviewScreen>
       final file = await ZipExporter.exportToZip(_currentWebsite);
       setState(() {
         _isExporting = false;
-        _exportSuccessPath = file.path;
       });
 
       if (mounted) {

@@ -72,7 +72,6 @@ class SpeechService {
         },
         listenFor: const Duration(seconds: 10),
         pauseFor: const Duration(seconds: 3),
-        cancelOnError: true,
       );
     } catch (_) {
       setState(AssistantState.error);

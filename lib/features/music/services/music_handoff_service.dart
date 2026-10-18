@@ -1,5 +1,6 @@
-import '../../core/config/app_config.dart';
-import '../../core/services/platform_bridge.dart';
+import 'package:cyber_ai/core/config/app_config.dart';
+import 'package:cyber_ai/core/services/platform_bridge.dart';
+
 import '../models/music_target.dart';
 
 class MusicHandoffResult {

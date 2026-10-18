@@ -28,7 +28,7 @@ class MessageBubble extends StatelessWidget {
               width: 32,
               height: 32,
               margin: const EdgeInsets.only(top: 4, right: 8),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 gradient: CyberColors.cyberGradient,
               ),

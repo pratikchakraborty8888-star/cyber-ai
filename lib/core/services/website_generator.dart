@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import '../config/app_config.dart';
 import '../../features/websites/models/website_spec.dart';
 import '../../features/websites/models/generated_website.dart';
@@ -33,7 +31,6 @@ class WebsiteGenerator {
 
     // 2. Generate CSS and Body HTML
     final css = CodeGenerator.generateCss(spec);
-    final html = CodeGenerator.generateBodyHtml(spec);
     final js = CodeGenerator.generateJs(spec);
 
     // 3. Validate and sanitize
