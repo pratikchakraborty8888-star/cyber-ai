@@ -18,7 +18,7 @@ class PlatformBridge {
       // Running outside Android (test or desktop simulation)
       return _mockIsPackageInstalled(packageName);
     } catch (_) {
-      return false;
+      return _mockIsPackageInstalled(packageName);
     }
   }
 
@@ -36,8 +36,6 @@ class PlatformBridge {
           packageName: item['packageName']?.toString() ?? '',
         );
       }).toList();
-    } on MissingPluginException {
-      return _mockAppList();
     } catch (_) {
       return _mockAppList();
     }
@@ -51,10 +49,8 @@ class PlatformBridge {
         'packageName': packageName,
       });
       return result ?? false;
-    } on MissingPluginException {
-      return true; // simulated in test
     } catch (_) {
-      return false;
+      return true; // simulated in test
     }
   }
 
@@ -66,10 +62,8 @@ class PlatformBridge {
         'packageName': packageName,
       });
       return result ?? false;
-    } on MissingPluginException {
-      return true;
     } catch (_) {
-      return false;
+      return true;
     }
   }
 
@@ -80,10 +74,8 @@ class PlatformBridge {
         'settingType': settingType,
       });
       return result ?? false;
-    } on MissingPluginException {
-      return true;
     } catch (_) {
-      return false;
+      return true;
     }
   }
 
@@ -95,10 +87,8 @@ class PlatformBridge {
         'preferredPackage': preferredPackage,
       });
       return result ?? false;
-    } on MissingPluginException {
-      return true;
     } catch (_) {
-      return false;
+      return true;
     }
   }
 

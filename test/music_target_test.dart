@@ -4,6 +4,8 @@ import 'package:cyber_ai/core/services/platform_bridge.dart';
 import 'package:cyber_ai/features/music/services/music_handoff_service.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   group('MusicHandoffService Tests', () {
     late PlatformBridge bridge;
     late MusicHandoffService service;
