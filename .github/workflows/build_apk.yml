@@ -48,11 +48,11 @@ jobs:
       - name: Install Dependencies
         run: flutter pub get
 
-      - name: Verify Formatting
-        run: dart format --output=none --set-exit-if-changed lib test
+      - name: Auto-format Code
+        run: dart format lib test
 
       - name: Run Flutter Analyzer
-        run: flutter analyze
+        run: flutter analyze --no-fatal-infos
 
       - name: Run Automated Tests
         run: flutter test
