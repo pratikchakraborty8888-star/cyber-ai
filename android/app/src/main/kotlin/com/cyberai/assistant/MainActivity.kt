@@ -93,9 +93,8 @@ class MainActivity: FlutterActivity() {
 
     private fun getLaunchableApps(): List<Map<String, String>> {
         val appList = mutableListOf<Map<String, String>>()
-        val intent = Intent(Intent.Action_MAIN, null).apply {
-            addCategory(Intent.CATEGORY_LAUNCHER)
-        }
+        val intent = Intent(Intent.ACTION_MAIN)
+        intent.addCategory(Intent.CATEGORY_LAUNCHER)
 
         val resolveInfos = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             packageManager.queryIntentActivities(intent, PackageManager.ResolveInfoFlags.of(0))
@@ -134,20 +133,18 @@ class MainActivity: FlutterActivity() {
     private fun openUrl(url: String, packageName: String?): Boolean {
         return try {
             val uri = Uri.parse(url)
-            val intent = Intent(Intent.ACTION_VIEW, uri).apply {
-                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                if (!packageName.isNullOrBlank() && isPackageInstalled(packageName)) {
-                    setPackage(packageName)
-                }
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            if (!packageName.isNullOrBlank() && isPackageInstalled(packageName)) {
+                intent.setPackage(packageName)
             }
             startActivity(intent)
             true
         } catch (e: Exception) {
             // Fallback to browser without package constraint
             try {
-                val fallbackIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url)).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                }
+                val fallbackIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                fallbackIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 startActivity(fallbackIntent)
                 true
             } catch (ex: Exception) {
@@ -167,11 +164,10 @@ class MainActivity: FlutterActivity() {
         }
 
         return try {
-            val intent = Intent(action).apply {
-                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                if (action == Settings.ACTION_APPLICATION_DETAILS_SETTINGS) {
-                    data = Uri.fromParts("package", packageName, null)
-                }
+            val intent = Intent(action)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            if (action == Settings.ACTION_APPLICATION_DETAILS_SETTINGS) {
+                intent.data = Uri.fromParts("package", packageName, null)
             }
             startActivity(intent)
             true
